@@ -28,6 +28,13 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/i, // Rule for .css files
+        use: [
+          'style-loader', // Injects styles into the DOM
+          'css-loader'    // Interprets @import and url() like import/require() and will resolve them
+        ],
+      },
+      {
         test: /\.scss$/i,
         use: [
           "style-loader",
@@ -40,7 +47,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Development'
+      title: 'Production',
+      minify: {
+        collapseWhitespace: true, // Minifies HTML
+        removeComments: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+      },
     }),
   ],
 };

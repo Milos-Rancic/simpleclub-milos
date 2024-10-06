@@ -1,14 +1,51 @@
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
+.b2b-nav-menu{
+  @media screen and (max-width: 991px){
+    height: 100dvh;
+    width: 100vw;
+    display: flex !important;
+    max-height: 0px;
+    transition: all 0.5s ease;
   }
-  to {
-    transform: translateX(calc(-100% - 2rem)); /* match 1 rem to gap above */
+  &.menu-open{
+    @media screen and (max-width: 991px){
+      max-height: 1500px;
+    }
   }
 }
 
-.scroll {
-  animation: scroll 10s linear infinite;
-  will-change: transform; 
+.b2b-dropdown-updated{
+  position: relative;
+  &:after{
+    bottom: -24px;
+    height: 24px;
+    left: 0px;
+    width: 100%;
+    content: '';
+    display: block;
+    position: absolute;
+  }
+}
+.b2b-mobile-drop-arrow{
+  transition: all 0.2s;
+}
+.menu-dropdown-open{
+  .b2b-mega-nav-wrap{
+    max-height: 700px;
+    @media screen and (max-width: 991px){
+      max-height: 1200px;
+    }
+  }
+  .b2b-mobile-drop-arrow{
+    transform: rotate(-180deg);
+  }
+}
+
+
+.b2b-mega-nav-icon{
+  path {
+    @media screen and (max-width: 991px){
+      fill: #fff;
+    }
+  }
 }
